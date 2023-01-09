@@ -8,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class LandingPageComponent implements OnInit {
 
   counter:number = 0;
+  isRed:boolean = false;
 
   constructor() { }
 
@@ -16,7 +17,7 @@ export class LandingPageComponent implements OnInit {
 
   increment() {
     this.counter++;
-    console.log("increment", this.counter);
+    this.isRed = this.counter >= 10;
   }
 
 }
