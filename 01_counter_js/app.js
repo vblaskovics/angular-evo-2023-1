@@ -3,7 +3,6 @@ let addBtnDOM = document.querySelector("#addBtn");
 
 
 addBtnDOM.addEventListener("click", function () {
-  console.log('addBtnDOM clicked');  
-  // counterDOM.textContent = Number(counterDOM.textContent) + 1;
+  counterDOM.textContent = Number(counterDOM.textContent) + 1;
 });
 
