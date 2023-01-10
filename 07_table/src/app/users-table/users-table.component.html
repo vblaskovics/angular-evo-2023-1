@@ -1,0 +1,31 @@
+<h1>Users table</h1>
+
+<!-- Users table -->
+<table>
+  <thead>
+    <th>Name 
+      <span (click)="orderUsersByName(false)">⬇️</span>
+      <span (click)="orderUsersByName()">⬆️</span>
+    </th>
+    <th>Age
+      <span (click)="orderUsersByAge(false)">⬇️</span>
+      <span (click)="orderUsersByAge()">⬆️</span>
+    </th>
+    <th>Email</th>
+    <th>Phone</th>
+  </thead>
+  <tr (click)="selectUser(user)" *ngFor="let user of users">
+    <td>{{ user.name }}</td>
+    <td>{{ user.age }}</td>
+    <td>{{ user.email }}</td>
+    <td>{{ user.phone }}</td>
+  </tr>
+</table>
+
+<ng-container *ngIf="selectedUser">
+  <h2>Details</h2>
+  <p>Name: {{ selectedUser.name }}</p>
+  <p>Age: {{ selectedUser.age }}</p>
+  <p>Email: {{ selectedUser.email }}</p>
+  <p>Phone: {{ selectedUser.phone }}</p>
+</ng-container>
