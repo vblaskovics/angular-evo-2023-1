@@ -1,0 +1,19 @@
+<h1>Built-in angular directives</h1>
+
+<!-- ngClass -->
+<p [ngClass]="getRedAndBoldClasses()">This paragraph is red and bold</p>
+
+<!-- ngStlye -->
+<p style="color:aqua; font-weight: bold;">This p is aqua and vold</p>
+<p [ngStyle]="getParagraphStyle()">This is a custom styled p</p>
+
+<!-- ngIf -->
+<p *ngIf="getRandomBoolean()">This p has 50% chance to be rendered</p>
+
+<!-- ngFor -->
+<h2>Todo list:</h2>
+<ul>
+  <li *ngFor="let todo of getTodoList()">
+    {{ todo }}
+  </li>
+</ul>
