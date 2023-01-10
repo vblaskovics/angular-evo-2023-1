@@ -1,0 +1,8 @@
+.inactive {
+  color: #ccc;
+  text-decoration: line-through;
+}
+
+span, a {
+  cursor: pointer;
+}

@@ -1,0 +1,12 @@
+<h1>Todo List</h1>
+<ul>
+  <li *ngFor="let todo of todos; let i = index">
+    <p>
+      <span (click)="toggleTodoActivationAt(i)" [class.inactive]="!todo.active">
+        {{ todo.title }}
+      </span>
+      <a (click)="removeTodoAt(i)">❌</a>
+    </p>
+  </li>
+</ul>
+Count: {{ activeTodosCount }}
