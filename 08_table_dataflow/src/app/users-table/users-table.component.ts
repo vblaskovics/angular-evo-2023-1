@@ -43,5 +43,10 @@ export class UsersTableComponent implements OnInit {
     this.selectedUser = user;
   }
 
+  deleteUser(user: User) {
+    this.users = this.users.filter(u => u.id !== user.id);
+    this.selectedUser = undefined;
+  }
+
 
 }

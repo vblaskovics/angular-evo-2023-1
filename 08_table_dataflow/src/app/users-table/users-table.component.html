@@ -22,4 +22,4 @@
   </tr>
 </table>
 
-<app-user-details [user]="selectedUser" *ngIf="selectedUser"></app-user-details>
+<app-user-details [user]="selectedUser" (deleteUserEvent)="deleteUser($event)" *ngIf="selectedUser"></app-user-details>
