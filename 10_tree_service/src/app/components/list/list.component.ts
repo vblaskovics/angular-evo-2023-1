@@ -7,28 +7,11 @@ import { Tree } from 'src/app/models/tree';
   styleUrls: ['./list.component.css'],
 })
 export class ListComponent implements OnInit {
-  @Input() tree?: Tree;
+  @Input() listItems?: Array<string>;
 
   constructor() {}
 
   ngOnInit(): void {}
 
-  get todoList(): string[] {
-    let todoArr: string[] = [];
-    if (this.tree) {
-      this.getLabelsRecursively(this.tree, todoArr);
-    }
-    return todoArr;
-  }
-
-  getLabelsRecursively(tree: Tree, todoArr: string[]): void {
-    if (tree.label) {
-      todoArr.push(tree.label);
-    }
-    if (tree.subTrees) {
-      tree.subTrees.forEach((subTree) => {
-        this.getLabelsRecursively(subTree, todoArr);
-      });
-    }
-  }
+  
 }
