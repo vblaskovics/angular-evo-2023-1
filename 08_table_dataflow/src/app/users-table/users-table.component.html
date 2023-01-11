@@ -22,10 +22,4 @@
   </tr>
 </table>
 
-<ng-container *ngIf="selectedUser">
-  <h2>Details</h2>
-  <p>Name: {{ selectedUser.name }}</p>
-  <p>Age: {{ selectedUser.age }}</p>
-  <p>Email: {{ selectedUser.email }}</p>
-  <p>Phone: {{ selectedUser.phone }}</p>
-</ng-container>
+<app-user-details [user]="selectedUser" *ngIf="selectedUser"></app-user-details>
