@@ -18,22 +18,7 @@ export class TodoListPageComponent implements OnInit {
   }
 
   get todoList(): string[] {
-    let todoArr: string[] = [];
-    if (this.todos) {
-      this.getLabelsRecursively(this.todos, todoArr);
-    }
-    return todoArr;
-  }
-
-  getLabelsRecursively(tree: Tree, todoArr: string[]): void {
-    if (tree.label) {
-      todoArr.push(tree.label);
-    }
-    if (tree.subTrees) {
-      tree.subTrees.forEach((subTree) => {
-        this.getLabelsRecursively(subTree, todoArr);
-      });
-    }
+    return this.todoService.getTodoList();
   }
 
 }

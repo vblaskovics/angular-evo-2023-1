@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Tree } from './models/tree';
+import { TodoService } from './services/todo.service';
 
 @Component({
   selector: 'app-root',
@@ -8,4 +8,18 @@ import { Tree } from './models/tree';
 })
 export class AppComponent {
   title = 'Tree Service';
+
+  newTodo: string = "";
+
+  constructor(private todoService: TodoService) {}
+
+  addNewTodo() {
+    this.todoService.addNewTodo(this.newTodo);
+    this.newTodo = "";
+  }
+
+  get todosCount() {
+    return this.todoService.getTodoList().length;
+  }
+
 }

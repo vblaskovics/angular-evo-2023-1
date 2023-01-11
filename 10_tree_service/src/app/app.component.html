@@ -3,6 +3,10 @@
 <nav>
   <a routerLink="/tree" routerLinkActive="active">Todo Tree</a>
   <a routerLink="/list" routerLinkActive="active">Todo List</a>
+  <input [(ngModel)]="newTodo" type="text" name="" id="">
+  <button (click)="addNewTodo()">Create Todo</button>
+  <span>Todos count:</span>
+  <span>{{ todosCount }}</span>
 </nav>
 
 <router-outlet></router-outlet>
