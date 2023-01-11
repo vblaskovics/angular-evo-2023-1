@@ -1,0 +1,13 @@
+<div class="tree">
+  <p *ngIf="tree?.label" (click)="toggleFolder()">
+    <span>{{ tree?.label }}</span>
+    <a (click)="clickDelete($event)">❎</a>
+  </p>
+  <ng-container *ngIf="!closed">
+    <app-tree-item
+      *ngFor="let subTree of tree?.subTrees"
+      [tree]="subTree"
+      (deleteMe)="deleteItem($event)"
+    ></app-tree-item>
+  </ng-container>
+</div>
