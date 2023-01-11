@@ -1,6 +1,13 @@
 <h1>Todo App</h1>
 
-<div class="container">
+<nav>
+  <a routerLink="/tree" routerLinkActive="active">Todo Tree</a>
+  <a routerLink="/list" routerLinkActive="active">Todo List</a>
+</nav>
+
+<router-outlet></router-outlet>
+
+<!-- <div class="container">
   <h2>Todo Tree</h2>
   <app-tree [tree]="todos"></app-tree>
 </div>
@@ -8,4 +15,4 @@
 <div class="container">
   <h2>Todo List</h2>
   <app-list [tree]="todos"></app-list>
-</div>
+</div> -->

@@ -2,3 +2,14 @@
   display: block;
   max-width: 300px;
 }
+
+a {
+  color: blue;
+  margin: 10px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+a.active {
+  text-decoration: underline;
+}
