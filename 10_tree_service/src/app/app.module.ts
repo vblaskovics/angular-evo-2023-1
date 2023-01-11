@@ -5,17 +5,21 @@ import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
 import { TreeComponent } from './components/tree/tree.component';
 import { ListComponent } from './components/list/list.component';
+import { TodoTreePageComponent } from './components/pages/todo-tree-page/todo-tree-page.component';
+import { TodoListPageComponent } from './components/pages/todo-list-page/todo-list-page.component';
 
 const routes: Routes = [
-  { path: 'tree', component: TreeComponent },
-  { path: 'list', component: ListComponent },
+  { path: 'tree', component: TodoTreePageComponent },
+  { path: 'list', component: TodoListPageComponent },
 ];
 
 @NgModule({
   declarations: [
     AppComponent,
     TreeComponent,
-    ListComponent
+    ListComponent,
+    TodoTreePageComponent,
+    TodoListPageComponent
   ],
   imports: [
     BrowserModule,
