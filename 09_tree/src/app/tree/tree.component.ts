@@ -2,7 +2,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Tree } from 'src/app/models/tree';
 
 @Component({
-  selector: 'app-tree-item',
+  selector: 'app-tree',
   templateUrl: './tree.component.html',
   styleUrls: ['./tree.component.css'],
 })

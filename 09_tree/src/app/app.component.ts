@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Tree } from './models/tree';
 
 @Component({
   selector: 'app-root',
@@ -7,16 +8,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AppComponent {
   title = 'TreeComponentNG';
-  todos = {
+  todos: Tree = {
     subTrees: [
       { label: 'Todo 1' },
       {
         label: 'Todo 2',
-        subTrees: [{ label: 'Sub-todo 1 ' }, { label: 'Sub-todo 2 ' }],
+        subTrees: [
+          {
+            label: 'Sub-todo 1 ',
+            subTrees: [{ label: 'Sub-sub-todo 1' }],
+          },
+          { label: 'Sub-todo 2 ' },
+        ],
       },
       { label: 'Todo 3' },
     ],
   };
-
-
 }
