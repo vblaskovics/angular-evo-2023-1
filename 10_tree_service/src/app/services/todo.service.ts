@@ -54,4 +54,9 @@ export class TodoService {
       });
     }
   }
+
+  deleteAllTodos() {
+    this.todos = { subTrees: [] };
+  }
+  
 }

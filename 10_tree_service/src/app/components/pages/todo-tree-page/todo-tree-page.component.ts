@@ -5,7 +5,7 @@ import { TodoService } from 'src/app/services/todo.service';
 @Component({
   selector: 'app-todo-tree-page',
   templateUrl: './todo-tree-page.component.html',
-  styleUrls: ['./todo-tree-page.component.css']
+  styleUrls: ['./todo-tree-page.component.css'],
 })
 export class TodoTreePageComponent implements OnInit {
 
