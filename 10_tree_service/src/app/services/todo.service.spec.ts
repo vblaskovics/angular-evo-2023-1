@@ -13,4 +13,10 @@ describe('TodoService', () => {
   it('should be created', () => {
     expect(service).toBeTruthy();
   });
+
+  it('should be able to return todos', () => {
+    const todos = service.getTodos();
+    expect(todos).toBeTruthy();
+  });
+
 });

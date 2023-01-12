@@ -17,4 +17,12 @@ export class TodoTreePageComponent implements OnInit {
     this.todos = this.todoService.getTodos();
   }
 
+  modifyTodos() {
+    // if(this.todos && this.todos.subTrees) {
+    //   this.todos.subTrees.push({label: 'new todo'});
+    // }
+
+    this.todos = {};
+  }
+
 }
