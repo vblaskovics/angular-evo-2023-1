@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Tree } from '../models/tree';
+import { BehaviorSubject, Observable, Subject, of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -22,7 +23,14 @@ export class TodoService {
     ],
   };
 
-  constructor() { }
+  // SOLUTION 1: Using Subject and value
+  // deleteAllCounter: number = 0;
+  // deleteAllCounter$: Subject<number> = new Subject();
+
+  // SOLUTION 2: Using BehaviorSubject
+  deleteAllCounter$: BehaviorSubject<number> = new BehaviorSubject(0);
+
+  constructor() {}
 
   getTodos() {
     return this.todos;
@@ -57,6 +65,13 @@ export class TodoService {
 
   deleteAllTodos() {
     this.todos = { subTrees: [] };
+
+    // SOLUTION 1: Using Subject and value
+    // this.deleteAllCounter++;
+
+    // SOLUTION 2: Using BehaviorSubject
+    this.deleteAllCounter$.next(this.deleteAllCounter$.getValue() + 1);
+    
   }
   
 }
