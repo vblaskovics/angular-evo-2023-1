@@ -1,2 +1,5 @@
 <button (click)="deleteAllTodos()">Delete All Todos</button>
-Click count: {{ deleteAllCounter }}
+Click count: {{ deleteAllCounter$ | async }}
+
+<p>Seconds last from todo created: {{ secondsFromLastNewTodo$ | async }} </p>
+<p>Minutes last from todo created: {{ minutesFromLastNewTodo$ | async }} </p>

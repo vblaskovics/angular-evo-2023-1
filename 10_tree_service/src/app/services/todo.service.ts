@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Tree } from '../models/tree';
-import { BehaviorSubject, Observable, Subject, of } from 'rxjs';
+import { BehaviorSubject, Observable, Subject, map, of, timer } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class TodoService {
   private todos: Tree = {
@@ -30,18 +30,33 @@ export class TodoService {
   // SOLUTION 2: Using BehaviorSubject
   deleteAllCounter$: BehaviorSubject<number> = new BehaviorSubject(0);
 
-  constructor() {}
+  lastNewTodoCreated$: BehaviorSubject<Date> = new BehaviorSubject<Date>(
+    new Date()
+  );
+  secondsFromLastNewTodo$: Subject<number> = new Subject();
+
+  constructor() {
+    timer(0, 1000)
+      .pipe(
+        map(() => {
+          let lastCreated = this.lastNewTodoCreated$.getValue().getTime();
+          return Math.floor((new Date().getTime() - lastCreated) / 1000);
+        })
+      )
+      .subscribe(this.secondsFromLastNewTodo$);
+  }
 
   getTodos() {
     return this.todos;
   }
 
   addNewTodo(todoLabel: string) {
-    if(!this.todos.subTrees) {
+    if (!this.todos.subTrees) {
       this.todos.subTrees = [];
     }
-    
+
     this.todos.subTrees.push({ label: todoLabel });
+    this.lastNewTodoCreated$.next(new Date());
   }
 
   getTodoList(): string[] {
@@ -71,7 +86,5 @@ export class TodoService {
 
     // SOLUTION 2: Using BehaviorSubject
     this.deleteAllCounter$.next(this.deleteAllCounter$.getValue() + 1);
-    
   }
-  
 }
